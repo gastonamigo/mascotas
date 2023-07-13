@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import { swaggerSpecs } from './config/docConfig.js';
 import swaggerUi from "swagger-ui-express";
+import dotenv from "dotenv";
 
 import usersRouter from './routes/users.router.js';
 import petsRouter from './routes/pets.router.js';
@@ -11,7 +12,7 @@ import sessionsRouter from './routes/sessions.router.js';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const connection = mongoose.connect(`URL MONGO DB PRUEBAS`);
+const connection = mongoose.connect(process.env.MONGO_URL);
 console.log("base de datos conectada");
 
 app.use(express.json());
